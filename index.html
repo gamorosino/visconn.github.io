@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VISCONN – VISion CONNectivity toolbox</title>
+  <style>
+    /* Simple, lightweight styling to make the page friendly on all devices. */
+    body {
+      font-family: Arial, Helvetica, sans‑serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #222;
+      background-color: #fafafa;
+    }
+    header {
+      background: #004f74;
+      color: #fff;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0 0 0.5rem;
+      font-size: 2.5rem;
+      letter-spacing: 0.1rem;
+    }
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    nav a {
+      padding: 0.5rem 1rem;
+      border-radius: 0.3rem;
+      background: #006ea0;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+    nav a:hover {
+      background: #0089c6;
+    }
+    main {
+      max-width: 860px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      color: #004f74;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+    }
+    footer {
+      background: #004f74;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+    footer a {
+      color: #b7e0ef;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    thead {
+      background: #f0f8ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VISCONN</h1>
+    <p>VISion CONNectivity toolbox</p>
+    <nav>
+      <a href="https://github.com/gamorosino/visconn.github.io">Repository</a>
+      <a href="https://www.biorxiv.org/content/10.64898/2026.04.03.716412v1">Preprint</a>
+      <a href="#citation">Citation</a>
+    </nav>
+  </header>
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        VISCONN is a lightweight, open‑source toolbox for studying retinotopically informed
+        connectivity within the human visual system. The toolbox ties retinotopic maps from
+        functional MRI to structural connections derived from diffusion MRI, enabling
+        analyses that respect the geometry of the visual field. VISCONN was developed as part
+        of the project described in the preprint “A retinotopic wiring principle of the human
+        brain,” which shows that regions representing the same location in visual space
+        preferentially connect to one another.
+      </p>
+    </section>
+    <section id="features">
+      <h2>Features</h2>
+      <ul>
+        <li><strong>Retinotopic ROI generation:</strong> segment V1 and V2 into regions of interest
+          based on polar angle and eccentricity.</li>
+        <li><strong>Connectivity analysis:</strong> compare tractography between ROIs to reveal
+          biases and asymmetries in early visual cortex.</li>
+        <li><strong>Scalable workflow:</strong> process hundreds to thousands of participants using
+          reproducible code and standard data formats.</li>
+        <li><strong>Visualization utilities:</strong> plot maps and connectivity patterns to aid
+          interpretation.</li>
+      </ul>
+    </section>
+    <section id="installation">
+      <h2>Installation</h2>
+      <p>
+        Clone the VISCONN repository and install in editable mode:
+      </p>
+      <pre><code>git clone https://github.com/gamorosino/visconn.git
+cd visconn
+pip install -e .</code></pre>
+      <p>
+        VISCONN depends on standard neuroimaging libraries such as <code>nibabel</code> and
+        <code>numpy</code>; see the repository for full requirements.
+      </p>
+    </section>
+
+    <section id="apps">
+      <h2>Apps &amp; computational provenance</h2>
+      <p>
+        The VISCONN framework is implemented as a reproducible workflow on
+        the <em>brainlife.io</em> platform. Each step of the pipeline corresponds to a versioned
+        application (App) with a Digital Object Identifier (DOI) that resolves to a
+        containerized service and its source code. The table below lists the Apps
+        used in the original study, along with their DOIs and GitHub repositories【706708347822307†L445-L516】.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>App</th>
+            <th>Brainlife DOI</th>
+            <th>GitHub repository</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>FSL Anat (T1)</td><td>10.25663/brainlife.app.273</td><td>brainlife/app-fsl-anat</td></tr>
+          <tr><td>Align T1 to ACPC Plane (HCP-based)</td><td>10.25663/brainlife.app.800</td><td>brainlife/app-hcp-acpc-alignment</td></tr>
+          <tr><td>FSL Anat (T2)</td><td>10.25663/brainlife.app.350</td><td>brainlife/app-fsl-anat</td></tr>
+          <tr><td>Align T2 to ACPC Plane (HCP-based)</td><td>10.25663/brainlife.app.116</td><td>brainlife/app-hcp-acpc-alignment/tree/1.4</td></tr>
+          <tr><td>Freesurfer</td><td>10.25663/bl.app.0</td><td>brainlife/app-freesurfer</td></tr>
+          <tr><td>Segment Thalamic Nuclei</td><td>10.25663/brainlife.app.222</td><td>brainlife/app-segment-thalamic-nuclei</td></tr>
+          <tr><td>Tissue-type segmentation</td><td>10.25663/brainlife.app.239</td><td>brainlife/app-mrtrix3-5tt</td></tr>
+          <tr><td>pRFs / Benson14-Retinotopy</td><td>10.25663/brainlife.app.559</td><td>brainlife/app-benson14-retinotopy/tree/v1.1</td></tr>
+          <tr><td>mrtrix3 preprocess</td><td>10.25663/bl.app.68</td><td>brainlife/app-mrtrix3-preproc/tree/1.7</td></tr>
+          <tr><td>FSL BET on DWI</td><td>10.25663/brainlife.app.163</td><td>brainlife/app-FSLBET</td></tr>
+          <tr><td>Fit constrained deconvolution model</td><td>10.25663/brainlife.app.238</td><td>bacaron/app-mrtrix3-act</td></tr>
+          <tr><td>ACT using precomputed 5tt &amp; CSD</td><td>10.25663/brainlife.app.297</td><td>bacaron/app-mrtrix3-act</td></tr>
+          <tr><td>mrtrix3 – WMC ACT</td><td>10.25663/brainlife.app.319</td><td>brainlife/app-mrtrix3-act</td></tr>
+          <tr><td>T1w-to-T1w registration</td><td>10.25663/brainlife.app.861</td><td>gamorosino/app-registration-t1w/tree/v0.1</td></tr>
+          <tr><td>Apply transformations to tractography (v1)</td><td>10.25663/brainlife.app.902</td><td>gamorosino/app-tract-transform/tree/main</td></tr>
+          <tr><td>Visual white-matter connectomics</td><td>10.25663/brainlife.app.784</td><td>brainlife/app-visual-white-matter/tree/v1.2</td></tr>
+          <tr><td>Visual white-matter connectomics – Single endpoints</td><td>10.25663/brainlife.app.785</td><td>brainlife/app-visual-white-matter/tree/v1.2</td></tr>
+          <tr><td>Tract profile computation</td><td>10.25663/brainlife.app.911</td><td>gamorosino/app-compute-tract-profile/tree/v0.1</td></tr>
+          <tr><td>Retinotopic connectivity matrix</td><td>10.25663/brainlife.app.910</td><td>gamorosino/app-retinotopic-connectivity</td></tr>
+          <tr><td>Gyral bias analysis</td><td>10.25663/brainlife.app.914</td><td>gamorosino/app-gyral-bias-analysis</td></tr>
+          <tr><td>Fiber bundle skeleton computation</td><td>10.25663/brainlife.app.915</td><td>gamorosino/app-bundle-skeleton</td></tr>
+          <tr><td>Streamline cleaning</td><td>10.25663/brainlife.app.912</td><td>gamorosino/app-streamline-cleaning/tree/v0.1</td></tr>
+          <tr><td>Tractogram clustering</td><td>10.25663/brainlife.app.916</td><td>gamorosino/app-tract-mbkm-cluster</td></tr>
+          <tr><td>Apply transformations to tractography (v2)</td><td>10.25663/brainlife.app.902</td><td>gamorosino/app-tract-transform/tree/v2.0</td></tr>
+          <tr><td>Map retinotopic connections</td><td>10.25663/brainlife.app.913</td><td>gamorosino/app-map-retinotopic-tracts/tree/main</td></tr>
+          <tr><td>Vertical Occipital Fasciculus (VOF) coverage</td><td>10.25663/brainlife.app.917</td><td>gamorosino/app-vof-coverage</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="summary">
+      <h2>Study summary</h2>
+      <p>
+        The VISCONN framework was developed to map structural connectivity in the human visual system in retinotopic
+        coordinates. By combining diffusion MRI tractography with retinotopic maps, VISCONN estimates
+        connectivity between cortical locations defined by eccentricity and polar angle【854870623446578†L242-L269】.
+        Using data from more than 1,700 participants across multiple datasets, the authors showed that
+        connectivity between early visual areas follows a retinotopic “like-to-like” wiring principle: connections are
+        strongest between homologous visual-field positions and decline monotonically with increasing distance
+        between eccentricity bins【854870623446578†L284-L303】. This organization was robust across datasets and persisted after
+        controlling for inter-regional distance and tractography biases【854870623446578†L304-L317】.
+      </p>
+      <p>
+        The study also linked structural connectivity to perceptual asymmetries. Connectivity between the lower
+        vertical meridian (LVM), horizontal meridian (HM) and upper vertical meridian (UVM) revealed that
+        streamline density is highest along the HM, intermediate along the LVM and lowest along the UVM【854870623446578†L368-L401】.
+        These differences mirror well-known perceptual asymmetries such as the horizontal–vertical (HVA) and
+        vertical meridian (VMA) asymmetries. Meridian-dependent effects were consistently observed across
+        independent cohorts, and control analyses showed that similar asymmetries were absent in long-range
+        connections between visual cortex and the rest of the brain【854870623446578†L418-L431】.
+      </p>
+      <p>
+        Lifespan analyses revealed that connectivity asymmetries evolve across development and aging. The
+        vertical meridian asymmetry showed a negative quadratic relationship with age, indicating greater
+        sensitivity to developmental and aging processes, whereas the horizontal–vertical asymmetry varied less
+        with age【854870623446578†L433-L449】. Finally, a population-level template was created by aggregating tractography from
+        more than 1,000 participants, enabling recovery of retinotopic connections that are difficult to
+        reconstruct in individual subjects and providing a compact reference for future studies【854870623446578†L499-L534】.
+      </p>
+    </section>
+    </section>
+    <section id="citation">
+      <h2>Citation</h2>
+      <p>
+        If you use VISCONN in your work, please cite:
+      </p>
+      <p>
+        Gabriele Amorosino, Bradley Caron, Junbeom Kwon, Marisa Carrasco, Cara E. Reid,
+        Christophe Lenglet, Jan Zimmermann, Essa Yacoub, Kamil Ugurbil, Sarah R. Heilbronner,
+        Franco Pestilli (2026). <em>A retinotopic wiring principle of the human brain.</em>
+        bioRxiv. doi:10.64898/2026.04.03.716412
+      </p>
+    </section>
+    <section id="abstract">
+      <h2>Retinotopic wiring principle</h2>
+      <p>
+        In the preprint, the authors demonstrate that structural connectivity across the human
+        visual cortex preserves retinotopic organization: cortical regions representing the
+        same locations in visual space connect preferentially. They show that
+        well‑known perceptual asymmetries correspond to systematic asymmetries in
+        connectivity within early visual cortex but not in connections linking visual
+        cortex to the rest of the brain【864227417811673†L84-L100】. The study introduces a
+        scalable approach for mapping retinotopic connectivity when tractography alone
+        is unreliable and provides a general principle linking brain structure,
+        function, and behavior.
+      </p>
+    </section>
+  </main>
+  <footer>
+    <p>© 2026 VISCONN project – All rights reserved.</p>
+    <p>Developed by the VISCONN team. The content on this site is licensed under
+      the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</p>
+  </footer>
+</body>
+</html>
