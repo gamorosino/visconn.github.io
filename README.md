@@ -1,27 +1,40 @@
-# VISCONN GitHub Pages site
+# VISCONN Web Site
 
-This repository hosts the static website for the **VISCONN** project (VISion CONNectivity toolbox).
+**VISCONN Web Site**  is a website for the  **VISion CONNectivity (VISCONN) toolbox**, a framework for studying retinotopically organized structural connectivity in the human visual system.
 
-The site provides a
-brief overview of the toolbox, installation instructions, and a citation for the associated
-preprint.
+The site summarizes the toolbox, links to the associated preprint, and documents the brainlife.io Apps used in the reproducible VISCONN workflow.
 
-To preview the site locally, you can run a simple HTTP server from the project directory:
+## Website
+
+This repository is published with GitHub Pages.
+
+```bash
+https://gamorosino.github.io/visconn.github.io/
+````
+
+## Local preview
+
+To preview the site locally:
 
 ```bash
 python3 -m http.server
 ```
 
-then visit `http://localhost:8000` in your browser.
+Then open:
 
-## About VISCONN
+```bash
+http://localhost:8000
+```
 
-VISCONN is a toolbox for analysing structural connections in the human visual system using
-retinotopic maps.  For details, see the preprint
-“A retinotopic wiring principle of the human brain”.
+## About the project
 
-### Apps and computational provenance
+VISCONN integrates retinotopic maps with diffusion MRI tractography to estimate structural connectivity between cortical locations defined in visual-field coordinates.
 
-The website includes a section listing all brainlife.io Apps used in the VISCONN pipeline with their
-Digital Object Identifiers (DOIs) and GitHub repositories. These references ensure that analyses
-conducted with VISCONN are fully reproducible.
+The associated preprint is:
+
+**Amorosino et al. (2026). *A retinotopic wiring principle of the human brain*. bioRxiv.**
+DOI: `10.64898/2026.04.03.716412`
+
+## Computational provenance
+
+The website includes a list of the brainlife.io Apps used in the VISCONN pipeline, including their Digital Object Identifiers and GitHub repositories. These records document the computational provenance of the analyses and support reproducibility.
