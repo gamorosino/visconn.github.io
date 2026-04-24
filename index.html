@@ -408,9 +408,63 @@
         padding: 1.35rem;
       }
     }
+
+    .hero-figure {
+  padding: 0.8rem;
+}
+
+.hero-figure p {
+  margin-top: 0.8rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+/* IMAGE STYLE */
+.zoomable {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+
+  /* IMAGE STYLE */
+  .zoomable {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+  }
+  
+  .zoomable:hover {
+    transform: scale(1.02);
+  }
+  
+  /* LIGHTBOX */
+  #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    cursor: zoom-out;
+  }
+  
+  #lightbox img {
+    max-width: 92%;
+    max-height: 92%;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+      
   </style>
 </head>
 
+
+  
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -449,19 +503,21 @@
         </div>
       </div>
 
-      <aside class="hero-card" aria-label="Retinotopic connectivity illustration">
-      
-        <img 
-          src="assets/VISCONN.png" 
-          alt="VISCONN Toolbox"
-          style="width: 100%; border-radius: 12px; display: block;"
-        />
-      
-        <p>
-          VISCONN links cortical maps of eccentricity and polar angle to white-matter pathways,
-          allowing connectivity to be analyzed in the coordinate system of visual space.
-        </p>
-      </aside>
+    <aside class="hero-card hero-figure" aria-label="Retinotopic connectivity illustration">
+    
+      <img 
+        src="assets/VISCONN.png" 
+        alt="VISCONN Toolbox"
+        class="zoomable"
+        onclick="openLightbox(this)"
+      />
+    
+      <p>
+        VISCONN links cortical maps of eccentricity and polar angle to white-matter pathways,
+        allowing connectivity to be analyzed in the coordinate system of visual space.
+      </p>
+    
+    </aside>
     </section>
 
     <section class="section" id="overview">
@@ -630,5 +686,31 @@ pip install -e .</code></pre>
       Website source hosted on GitHub Pages.
     </p>
   </footer>
+
+
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+function openLightbox(img) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  lightbox.style.display = "flex";
+  lightboxImg.src = img.src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+/* Optional: ESC key to close */
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeLightbox();
+  }
+});
+</script>
+  
 </body>
 </html>
